@@ -1,0 +1,101 @@
+/*
+This is the main CSS file for the application.
+It includes base Tailwind directives, custom component classes, and optional utilities.
+*/
+
+/* 1. Base Tailwind Directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 2. Custom Component Classes (used across the app) */
+@layer components {
+  /* Main call-to-action button with gradient */
+  .btn-primary {
+    @apply relative inline-flex items-center justify-center
+           bg-gradient-to-r from-primary-500 to-accent-500
+           text-white px-6 py-3 rounded-lg font-semibold shadow-md
+           transition-all duration-200 ease-in-out
+           hover:shadow-lg hover:from-primary-600 hover:to-accent-600
+           focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2
+           active:scale-[0.98];
+  }
+
+  /* Secondary outline-style button */
+  .btn-secondary {
+    @apply inline-flex items-center justify-center
+           bg-gray-200 text-gray-700 px-6 py-3 rounded-lg font-medium
+           transition-colors duration-200
+           hover:bg-gray-300 hover:text-gray-800
+           focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2;
+  }
+
+  /* Standard form input field */
+  .form-input {
+    @apply w-full px-4 py-3 border border-gray-300 rounded-lg
+           transition-colors duration-150 ease-in-out
+           focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent
+           placeholder:text-gray-400;
+  }
+
+  /* Icon-only utility buttons (e.g., for edit/delete in tables) */
+  .btn-icon-primary,
+  .btn-icon-danger {
+    @apply inline-flex items-center justify-center
+           p-2 rounded-full transition-colors duration-150 ease-in-out
+           focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+
+  .btn-icon-primary {
+    @apply bg-primary-100 text-primary-600
+           hover:bg-primary-200
+           focus:ring-primary-300;
+  }
+
+  .btn-icon-danger {
+    @apply bg-red-100 text-red-600
+           hover:bg-red-200
+           focus:ring-red-300;
+  }
+}
+
+/* 3. Optional Animated Gradient for Homepage Hero */
+/* Safe to include—only used where explicitly applied */
+.bg-gradient-anim {
+  background: linear-gradient(-45deg, #FFEDD5, #FCE7F3, #DBEAFE, #FEE2E2);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* 4. Accessibility & Responsiveness Enhancements (Optional but Recommended) */
+@layer utilities {
+  /* Reduce motion preference support */
+  @media (prefers-reduced-motion: reduce) {
+    .btn-primary,
+    .btn-secondary,
+    .btn-icon-primary,
+    .btn-icon-danger,
+    .bg-gradient-anim {
+      animation: none !important;
+      transition: none !important;
+      transition-duration: 0ms !important;
+    }
+  }
+
+  /* Focus ring utility for high-contrast mode compatibility */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+}
