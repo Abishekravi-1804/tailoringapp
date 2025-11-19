@@ -6,8 +6,8 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null)
   const [loading, setLoading] = useState(true)
 
-  // API URL - Change this to your backend URL
-  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000'
+  // API URL - Use environment variable, remove /api suffix since endpoints add it
+  const API_URL = import.meta.env.VITE_API_BASE_URL?.replace('/api', '') || 'http://localhost:8000'
 
   useEffect(() => {
     // Check if user is logged in on mount
