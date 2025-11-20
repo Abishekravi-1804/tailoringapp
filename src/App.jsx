@@ -31,6 +31,7 @@ function App() {
             <Route path="/signup" element={<Signup />} />
             <Route path="/verify-email" element={<VerifyEmail />} />
             <Route path="/user/profile" element={<UserProfile />} />
+
             {/* User Protected Routes (requireAdmin = false) */}
             <Route 
               path="/user/dashboard" 
@@ -41,7 +42,7 @@ function App() {
               } 
             />
             <Route 
-              path="/user/profile" 
+              path="/profile" 
               element={
                 <ProtectedRoute requireAdmin={false}>
                   <Layout><TailorProfile /></Layout>

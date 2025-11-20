@@ -81,7 +81,7 @@ const Dashboard = () => {
 
         <motion.div variants={itemVariants}>
           <Link
-            to="/user/profile"
+            to="/profile"
             className="bg-white/60 backdrop-blur-sm rounded-2xl shadow-lg p-8 transition-all duration-300 transform hover:-translate-y-2 border border-gray-200 group hover:shadow-2xl hover:shadow-accent-500/20 block"
           >
             <div className="text-center">
